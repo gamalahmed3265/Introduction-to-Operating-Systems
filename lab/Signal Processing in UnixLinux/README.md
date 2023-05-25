@@ -1,3 +1,61 @@
+The `signal()` function in C is used to set the action taken by a process on receipt of a specific signal. The signal can be any valid signal except SIGKILL and SIGSTOP.
+
+The `signal()` function takes two arguments:
+
+`sig`: The signal to be handled.
+`handler`: A pointer to the function that will be called when the signal is received.
+The `sig` argument specifies the signal that is to be handled. The handler argument specifies the function that will be called when the signal is received. The `handler` function can be any function that takes one argument, which is the signal number.
+
+The following code shows how to use the signal() function to set a signal handler for the SIGINT signal:
+
+```
+#include <signal.h>
+
+void sigint_handler(int signo) {
+  // Do something when SIGINT is received.
+}
+
+int main() {
+  // Set the signal handler for SIGINT.
+  signal(SIGINT, sigint_handler);
+
+  // Do some work.
+
+  // Wait for a signal to be received.
+  pause();
+
+  return 0;
+}
+```
+
+
+In this example, the sigint_handler() function is called when SIGINT is received. The `signal()` function returns the previous action for the signal.
+
+The `signal()` function can also be used to get the current action for a signal. To do this, pass a NULL pointer for the handler argument. The sig argument specifies the signal that is to be handled.
+
+The following code shows how to use the `signal()` function to get the current action for the SIGINT signal:
+
+```
+#include <signal.h>
+
+int main() {
+  // Get the current action for SIGINT.
+  void (*old_handler)(int) = signal(SIGINT, NULL);
+
+  // Do some work.
+
+  // Restore the old action for SIGINT.
+  signal(SIGINT, old_handler);
+
+  return 0;
+}
+
+```
+
+In this example, the `old_handler` variable is assigned the previous action for the SIGINT signal. The `signal()` function returns the previous action for the signal.
+
+The `signal()` function is a powerful tool that can be used to control the behavior of signals. It can be used to set signal handlers, block signals, and get the current action for a signal.
+
 The sigaction structure is defined as
 ```
 struct sigaction{
@@ -24,29 +82,29 @@ The code you provided is a C program that uses the `sigaction()` function to set
 
 The `sigaction()` function takes three arguments:
 
-`sig`: The signal to be handled.
-`act`: A pointer to a `struct sigaction` structure that specifies the new action to be taken.
-`oact`: A pointer to a `struct sigaction` structure that will be filled in with the old action.
+1. `sig`: The signal to be handled.
+2. `act`: A pointer to a `struct sigaction` structure that specifies the new action to be taken.
+3. `oact`: A pointer to a `struct sigaction` structure that will be filled in with the old action.
 The `struct sigaction` structure has the following members:
 
-`sa_handler`: A pointer to the signal handler function.
-`sa_mask`: A set of signals that will be blocked while the signal handler is running.
-`sa_flags`: A set of flags that control the behavior of the signal handler.
+1..  `sa_handler`: A pointer to the signal handler function.
+2. `sa_mask`: A set of signals that will be blocked while the signal handler is running.
+3. `sa_flags`: A set of flags that control the behavior of the signal handler.
 The `sa_handler` member is a pointer to the function that will be called when the signal is received. The `sa_mask` member is a set of signals that will be blocked while the signal handler is running. This means that other signals will not be able to interrupt the signal handler. The `sa_flags` member is a set of flags that control the behavior of the signal handler.
 
 In the code you provided, the `sa_handler` member is set to the address of the `handler()` function. The `handler() `function prints the signal number, the PID of the process that sent the signal, and the UID of the process that sent the signal. The `sa_mask` member is set to the empty set. This means that no signals will be blocked while the `handler()` function is running. The sa_flags member is set to the `SA_SIGINFO` flag. This flag tells the `sigaction()` function to pass a `siginfo_t` structure to the signal handler.
 
 `The siginfo_t` structure is a structure that contains information about the signal that was received. The siginfo_t structure has the following members:
 
-`si_signo`: The signal number.
-`si_errno`: The error number, if any.
-`si_code`: The signal code.
-`si_pid`: The PID of the process that sent the signal.
-`si_uid`: The UID of the process that sent the signal.
-`si_status`: The exit status of the process, if any.
-`si_utime`: The user time consumed by the signal handler.
-`si_stime`: The system time consumed by the signal handler.
-`The siginfo_t` structure is passed to the signal handler as an argument. The signal handler can use the siginfo_t structure to get information about the signal that was received.
+1. `si_signo`: The signal number.
+2. `si_errno`: The error number, if any.
+3. `si_code`: The signal code.
+4.`si_pid`: The PID of the process that sent the signal.
+5.`si_uid`: The UID of the process that sent the signal.
+6.`si_status`: The exit status of the process, if any.
+7.`si_utime`: The user time consumed by the signal handler.
+8.`si_stime`: The system time consumed by the signal handler.
+9.`The siginfo_t` structure is passed to the signal handler as an argument. The signal handler can use the siginfo_t structure to get information about the signal that was received.
 
 In the `handler()` function, the `si_pid` member of the `siginfo_t` structure is used to get the PID of the process that sent the signal. The `si_uid `member of the `siginfo_t` structure is used to get the UID of the process that sent the signal.
 
@@ -88,3 +146,4 @@ int main() {
 0 0 0 0 0 0 0 0 0 0
 
 ```
+
