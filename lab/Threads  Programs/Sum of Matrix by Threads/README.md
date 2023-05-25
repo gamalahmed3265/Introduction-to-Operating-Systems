@@ -11,3 +11,17 @@ program must be compiled as
 ```
 gcc C4.1.c –pthread
 ```
+
+# Output C4.1.C
+![Screenshot 2023-05-25 141042_edited](https://github.com/gamalahmed3265/Introduction-to-Operating-Systems/assets/75225936/859b5138-f958-46d0-a9c6-dde6f878e19f)
+
+2. # C4.2
+
+Then it creates two subthreads to sort each of the two parts, and waits for the subthreads to finish.
+Each subthread sorts its own range by the same algorithm recursively. When all the subthreads have
+finished, the main thread resumes. It prints the sorted array and terminates. As is well known, the
+number of sorting steps of quicksort depends on the order of the unsorted data, which affects the
+number of threads needed in the qsort program
+
+# Output C4.2.C
+![Screenshot 2023-05-25 141310_edited](https://github.com/gamalahmed3265/Introduction-to-Operating-Systems/assets/75225936/a3180260-624c-46ac-bfb9-c0c0da1abbb7)
