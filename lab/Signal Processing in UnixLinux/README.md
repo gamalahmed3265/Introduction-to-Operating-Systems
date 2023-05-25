@@ -1,3 +1,4 @@
+# signal
 The `signal()` function in C is used to set the action taken by a process on receipt of a specific signal. The signal can be any valid signal except SIGKILL and SIGSTOP.
 
 The `signal()` function takes two arguments:
