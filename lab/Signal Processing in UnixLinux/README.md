@@ -56,6 +56,9 @@ In this example, the `old_handler` variable is assigned the previous action for 
 
 The `signal()` function is a powerful tool that can be used to control the behavior of signals. It can be used to set signal handlers, block signals, and get the current action for a signal.
 
+# Sigaction
+
+
 The sigaction structure is defined as
 ```
 struct sigaction{
