@@ -1,14 +1,18 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
 #include <pthread.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
 
 void* routine(){
-    printf("Test from Thread inside process id: %d\n",getpid();
+    printf("Test from Thread inside process id: %d\n",getpid());
     sleep(3);
     printf("Ending Thread\n");
 }
-int main(){
+int main(int argc,char*argv[]){
     pthread_t t1;
     pthread_t t2;
     if (pthread_create(&t1,NULL,&routine,NULL)==0)
