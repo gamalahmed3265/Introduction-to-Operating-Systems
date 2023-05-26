@@ -17,5 +17,5 @@ Modern Operating Systems</a>
 
 <tr><td>4.</td><td><a target="_blank" href="http://pages.cs.wisc.edu/~remzi/OSTEP/">
 Operating Systems: Three Easy Pieces</a>
-<tr><td>4.</td><td><a target="_blank" href="[http://pages.cs.wisc.edu/~remzi/OSTEP/](https://www.amazon.com/Systems-Programming-Unix-Linux-K-C/dp/3319924281)">
+<tr><td>4.</td><td><a target="_blank" href="http://pages.cs.wisc.edu/~remzi/OSTEP/](https://www.amazon.com/Systems-Programming-Unix-Linux-K-C/dp/3319924281">
 System programming in unixli</a>
