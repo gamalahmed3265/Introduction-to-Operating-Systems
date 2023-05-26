@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     act.sa_sigaction = &handler;
     act.sa_flags = SA_SIGINFO;
     sigaction(SIGTERM, &act, NULL);
-    printf("proc PID=%d looping\n”);
+    printf("proc PID=%d looping\n”,getpid());
     printf(“enter kill PID to send SIGTERM signal to it\n", getpid());
     while(1){
             sleep(10);
