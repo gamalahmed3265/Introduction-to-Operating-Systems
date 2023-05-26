@@ -11,7 +11,7 @@ int main(int argc,char*argv[]){
     int pid=fork();
     if (pid==-1)
         return -1;
-    printf("Hello Process\n");
+   print("Process id: %d\n".getpid());
 
     if(pid!=0)
         wait(NULL);
