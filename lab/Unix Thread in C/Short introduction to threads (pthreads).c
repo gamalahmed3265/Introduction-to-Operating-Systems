@@ -4,7 +4,7 @@
 #include <pthread.h>
 
 void* routine(){
-    printf("Test from Thread\n");
+    printf("Test from Thread inside process id: %d\n",getpid();
     sleep(3);
     printf("Ending Thread\n");
 }
