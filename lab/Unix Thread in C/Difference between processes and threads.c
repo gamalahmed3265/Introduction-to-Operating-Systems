@@ -6,11 +6,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-void* routine(){
-    printf("Test from Thread\n");
-    sleep(3);
-    printf("Ending Thread\n");
-}
+
 int main(int argc,char*argv[]){
     int pid=fork();
     if (pid==-1)
