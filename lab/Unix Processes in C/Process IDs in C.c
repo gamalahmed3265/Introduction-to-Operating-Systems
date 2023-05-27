@@ -12,5 +12,13 @@ int main(int argc,char*argv[]){
         sleep(1);
     }
     printf("Current id=> %d , parent id=> %d\n",getpid(),getppid());
+
+    int res=wait(NULL);
+    if (res==-1){
+        printf("No Children to wait for \n");
+    }
+    else{
+        printf("%d finished execution\n",res);
+    }
     return 0;
 }
