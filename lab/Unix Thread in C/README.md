@@ -1,4 +1,3 @@
-Sure, here are the differences between processes and threads in C:
 
 
 * **Processes** are independent units of execution that have their own address space, stack, and registers. Processes are created by the operating system and are managed by the kernel.
@@ -80,4 +79,3 @@ int main() {
 ```
 
 
-I hope this helps! Let me know if you have any other questions.
