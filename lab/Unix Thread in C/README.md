@@ -122,7 +122,7 @@ int main() {
 A mutex in C is a synchronization object that can be used to protect shared data from concurrent access. A mutex is created using the pthread_mutex_t type, and can be locked and unlocked using the pthread_mutex_lock() and pthread_mutex_unlock() functions. When a mutex is locked, no other thread can lock it until it is unlocked. This ensures that only one thread can access the shared data at a time, which prevents race conditions.
 
 Here is an example of how to use a mutex in C:
-```
+```c
 #include <pthread.h>
 
 pthread_mutex_t mutex;
