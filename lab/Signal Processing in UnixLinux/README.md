@@ -9,7 +9,7 @@ The `sig` argument specifies the signal that is to be handled. The handler argum
 
 The following code shows how to use the signal() function to set a signal handler for the SIGINT signal:
 
-```
+```c
 #include <signal.h>
 
 void sigint_handler(int signo) {
@@ -36,7 +36,7 @@ The `signal()` function can also be used to get the current action for a signal.
 
 The following code shows how to use the `signal()` function to get the current action for the SIGINT signal:
 
-```
+```c
 #include <signal.h>
 
 int main() {
@@ -61,7 +61,7 @@ The `signal()` function is a powerful tool that can be used to control the behav
 
 
 The sigaction structure is defined as
-```
+```c
 struct sigaction{
     void (*sa_handler)(int);
     void (*sa_sigaction)(int, siginfo_t *, void *);
@@ -116,7 +116,7 @@ The `sigaction()` function is a powerful tool that can be used to control the be
 
 # memset
 `memset` is a standard library function in C and C++ programming languages. It is used to set the specified number of bytes of an array to a particular value. The syntax of the memset function is as follows:
-```
+```c
 void *memset(void *s, int c, size_t n);
 
 ```
@@ -126,7 +126,7 @@ hhe first argument, s, is a pointer to the array that is to be filled. The secon
 The memset function returns a pointer to the array that was filled.
 
 The following code shows how to use the memset function to fill an array with zeros:
-```
+```c
 #include <stdio.h>
 
 int main() {
