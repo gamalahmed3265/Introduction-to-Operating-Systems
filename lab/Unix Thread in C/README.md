@@ -78,4 +78,86 @@ int main() {
 }
 ```
 
+A mutex in C is a synchronization object that can be used to protect shared data from concurrent access. A mutex is created using the `pthread_mutex_t` type, and can be locked and unlocked using the `pthread_mutex_lock()` and `pthread_mutex_unlock()` functions. When a mutex is locked, no other thread can lock it until it is unlocked. This ensures that only one thread can access the shared data at a time, which prevents race conditions.
 
+Here is an example of how to use a mutex in C:
+
+```c
+#include <pthread.h>
+
+pthread_mutex_t mutex;
+
+void *thread_function(void *arg) {
+  // Lock the mutex
+  pthread_mutex_lock(&mutex);
+
+  // Access the shared data
+  // ...
+
+  // Unlock the mutex
+  pthread_mutex_unlock(&mutex);
+
+  return NULL;
+}
+
+int main() {
+  // Initialize the mutex
+  pthread_mutex_init(&mutex, NULL);
+
+  // Create a thread
+  pthread_t thread;
+  pthread_create(&thread, NULL, thread_function, NULL);
+
+  // Wait for the thread to finish
+  pthread_join(thread, NULL);
+
+  // Destroy the mutex
+  pthread_mutex_destroy(&mutex);
+
+  return 0;
+}
+```
+### Mutexes
+
+A mutex in C is a synchronization object that can be used to protect shared data from concurrent access. A mutex is created using the pthread_mutex_t type, and can be locked and unlocked using the pthread_mutex_lock() and pthread_mutex_unlock() functions. When a mutex is locked, no other thread can lock it until it is unlocked. This ensures that only one thread can access the shared data at a time, which prevents race conditions.
+
+Here is an example of how to use a mutex in C:
+```
+#include <pthread.h>
+
+pthread_mutex_t mutex;
+
+void *thread_function(void *arg) {
+  // Lock the mutex
+  pthread_mutex_lock(&mutex);
+
+  // Access the shared data
+  // ...
+
+  // Unlock the mutex
+  pthread_mutex_unlock(&mutex);
+
+  return NULL;
+}
+
+int main() {
+  // Initialize the mutex
+  pthread_mutex_init(&mutex, NULL);
+
+  // Create a thread
+  pthread_t thread;
+  pthread_create(&thread, NULL, thread_function, NULL);
+
+  // Wait for the thread to finish
+  pthread_join(thread, NULL);
+
+  // Destroy the mutex
+  pthread_mutex_destroy(&mutex);
+
+  return 0;
+}
+```
+
+In this example, the thread_function() function locks the mutex before accessing the shared data. This ensures that no other thread can access the shared data while the current thread is using it. Once the current thread is finished with the shared data, it unlocks the mutex, allowing other threads to access it.
+
+Mutexes are a powerful tool for preventing race conditions in multithreaded code. However, it is important to use them correctly. If a mutex is not locked before accessing shared data, it is possible for other threads to access the data in an inconsistent state, which can lead to errors.
