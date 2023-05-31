@@ -12,15 +12,15 @@ int main(int argc, char *argv[])
     int id2 = fork();
     if (id1 == 0){ // child p wait
         if (id2 == 0){
-            printf("We are process Current id=> %d , parent id=> %d\n",getpid(),getppid());
+            printf("We are process y Current id=> %d , parent id=> %d\n",getpid(),getppid());
         }
         else{
-            printf("We are process Current id=> %d , parent id=> %d\n",getpid(),getppid());
+            printf("We are process x Current id=> %d , parent id=> %d\n",getpid(),getppid());
         }
     }
     else{
         if (id2 == 0){
-            printf("We are process Current id=> %d , parent id=> %d\n",getpid(),getppid());
+            printf("We are process z Current id=> %d , parent id=> %d\n",getpid(),getppid());
         }
         else{
             printf("We are the parent Current id=> %d , parent id=> %d\n",getpid(),getppid());
