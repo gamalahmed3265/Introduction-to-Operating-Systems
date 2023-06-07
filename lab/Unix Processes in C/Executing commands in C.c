@@ -20,6 +20,7 @@ int main(int argc, char *argv[]){
     }
     else{
         //parent process
+        wait(NULL);
         printf("Sucessful!\n");
         printf("Some post processing goes here\n");
     }
