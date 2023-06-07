@@ -12,15 +12,21 @@ int main(int argc, char *argv[]){
     printf("size of arr is: %d\n",sizeArr);
     int start,end;
     int fd[2];
-    
+    // fd[0] - read
+    // fd[1] - write
+
+    if (pipe(fd)==-1){
+        printf("An error ocurred with opening the pip\n");
+        return 1;
+    }
+    // create child process
     int id=fork();
     if (id==-1){
         printf("An error occured with forking the process\n");
-            return 4;
+            return 2;
     }
     // child send verible to parent and compute value
     if (id==0){
-        
         start=0;
         end=start+sizeArr/2;
     }
@@ -39,13 +45,6 @@ int main(int argc, char *argv[]){
     // will output start-end 3-7 = sum=16
     printf("Calc Practical  Sum is: %d\n",sum);
 
-    // fd[0] - read
-    // fd[1] - write
-
-    if (pipe(fd)==-1){
-        printf("An error ocurred with opening the pip\n");
-        return 1;
-    }
     if(id==0){
         // close the pipe read 
         close(fd[0]);
@@ -53,7 +52,7 @@ int main(int argc, char *argv[]){
         // write d this value in fd
         if(write(fd[1],&sum,sizeof(sum))==-1){
             printf("An error occured with writing the pipe\n");
-            return 2;
+            return 3;
         }
         // close the pipe write 
         close(fd[1]);
@@ -64,7 +63,7 @@ int main(int argc, char *argv[]){
         close(fd[1]);
         if(read(fd[0],&sumFromChild,sizeof(sumFromChild))==-1){
             printf("An error occured with reading the pipe\n");
-            return 2;
+            return 4;
         }
         // close the pipe write 
         close(fd[0]);
