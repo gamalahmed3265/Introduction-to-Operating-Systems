@@ -14,7 +14,7 @@ The exec() library functions are a powerful tool that can be used to change the 
 
 Here is an example of how to use the `execlp()` function to start a new program:
 
-```
+```c
 // This function starts a new program.
 void start_program(char *program_name, char *arg1, char *arg2) {
   // Check if the program exists.
