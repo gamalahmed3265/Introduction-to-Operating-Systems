@@ -29,7 +29,7 @@ int main(int argc, char *argv[]){
         end=sizeArr;
     }
 
-    printf("start: %d, end: %d\n",start,end);
+    printf("pid: %d,start: %d, end: %d\n",id,start,end);
     int sum=0;
     int i;
     for (i = start; i < end; i++){
