@@ -10,11 +10,11 @@
 #include <fcntl.h>
 
 int main(int argc, char *argv[]){
-    int id=fork();
-    if(id==-1){
+    int pid=fork();
+    if(pid==-1){
         return 2;
     }
-    if(id==0){
+    if(pid==0){
         while(1){
             printf("some text goes here\n");
             usleep(50000);
