@@ -6,7 +6,7 @@ The `open()` function returns a file descriptor, which is a small integer that c
 
 Here is an example of how to use the `open()` function to write to a file:
 
-```
+```c
 // Open the file for writing.
 int file_descriptor = open("pingTest.txt", O_WRONLY | O_CREAT);
 
@@ -25,7 +25,7 @@ The `dup()` and `dup2()` functions are used to duplicate file descriptors. The `
 
 The `dup()` and `dup2()` functions are often used to redirect input and output from one file to another. For example, the following code redirects standard output to the file `output.txt`:
 
-```
+```c
 // Redirect standard output to the file output.txt.
 int file_descriptor = dup(1);
 int new_file_descriptor = open("output.txt", O_WRONLY | O_CREAT);
