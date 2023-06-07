@@ -39,7 +39,6 @@ int main(int argc, char *argv[]){
     // will output start-end 3-7 = sum=16
     printf("Calc Practical  Sum is: %d\n",sum);
 
-    int fd[2];
     // fd[0] - read
     // fd[1] - write
 
