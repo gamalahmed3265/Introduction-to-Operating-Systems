@@ -60,16 +60,16 @@ int main(int argc, char *argv[]){
         close(fd[1]);
     }
     else{
-        int totalSum;
+        int sumFromChild;
         // close the pipe write 
         close(fd[1]);
-        if(read(fd[0],&totalSum,sizeof(totalSum))==-1){
+        if(read(fd[0],&sumFromChild,sizeof(sumFromChild))==-1){
             printf("An error occured with reading the pipe\n");
             return 2;
         }
         // close the pipe write 
         close(fd[0]);
-        int totalSum=sum+totalSum;
+        int totalSum=sum+sumFromChild;
         printf("Sum in All Proces %d\n",totalSum);
         wait(NULL);
     }
