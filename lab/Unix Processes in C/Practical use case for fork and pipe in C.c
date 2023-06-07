@@ -9,7 +9,7 @@
 int main(int argc, char *argv[]){
     int arr[]={2,5,4,2,1,7,6};
     int sizeArr=sizeof(arr)/sizeof(int);
-    print("size of arr is: %d\n",sizeArr)
+    print("size of arr is: %d\n",sizeArr);
     int start,end;
     int fd[2];
     
@@ -29,7 +29,7 @@ int main(int argc, char *argv[]){
         end=sizeArr;
     }
 
-
+    printf("start: %d, end: %end: ",start,end);
     int sum=0;
     int i;
     for (i = start; i < end; i++){
