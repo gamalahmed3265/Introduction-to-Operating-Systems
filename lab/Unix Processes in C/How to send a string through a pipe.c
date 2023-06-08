@@ -67,6 +67,7 @@ int main(int argc, char *argv[])
     {
         close(fd[1]);
         char str[200];
+        int n;
         if (read(fd[0], &n, sizeof(int)) == -1)
         {
             printf("An error occured with writing the pipe\n");
