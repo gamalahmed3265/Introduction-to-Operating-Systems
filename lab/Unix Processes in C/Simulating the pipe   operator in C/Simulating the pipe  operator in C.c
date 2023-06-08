@@ -57,6 +57,9 @@ int main(int argc, char *argv[])
             "rtt",
             NULL);
     }
+    close(fd[0]);
+    close(fd[1]);
+    
     waitpid(pid, NULL, 0);
     waitpid(pid2, NULL, 0);
 
