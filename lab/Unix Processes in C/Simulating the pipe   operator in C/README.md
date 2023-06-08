@@ -1,3 +1,6 @@
+## Simulating the pipe "|" operator in C
+
+
 The code you provided creates two child processes, one to run the `ping` command and the other to run the `grep` command. The `ping` command sends five pings to the Google domain and the `grep` command searches the output of the `ping` command for the string `rtt`. The `waitpid` functions wait for the child processes to finish before returning.
 
 Here is a breakdown of what each line of code does:
