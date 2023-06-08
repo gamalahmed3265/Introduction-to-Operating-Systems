@@ -11,7 +11,6 @@
 #include <time.h>
 #include <string.h>
 
-
 int x = 0;
 void handler(int sig)
 {
@@ -35,28 +34,28 @@ int main(int argc, char *argv[])
     int pid = fork();
     if (pid == -1)
     {
-        return -1;
+        return 1;
     }
 
     if (pid == 0)
     {
         // close the pipe read
         close(fd[0]);
-        
+
         char str[200];
         int n;
         printf("Input String: ");
-        fgets(str,200,stdin);
-        n=&strlen(str)
-        
-        str[n-1]='\0';
+        fgets(str, 200, stdin);
+        n = strlen(str) + 1;
 
-        if (write(fd[1], str, sizeof(char)* n) == -1)
+        str[n - 1] = '\0';
+
+        if (write(fd[1], &n, sizeof(int)) == -1)
         {
             printf("An error occured with writing the pipe\n");
-            return 2;
+            return 3;
         }
-        if (write(fd[1], &n, sizeof(int)) == -1)
+        if (write(fd[1], str, sizeof(char) * n) == -1)
         {
             printf("An error occured with writing the pipe\n");
             return 2;
@@ -68,14 +67,16 @@ int main(int argc, char *argv[])
     {
         close(fd[1]);
         char str[200];
-        if (read(fd[0], &n, sizeof(int)) == -1){
+        if (read(fd[0], &n, sizeof(int)) == -1)
+        {
             printf("An error occured with writing the pipe\n");
-            return 2;
-            }
-        if (read(fd[0], &str, sizeof(char)* n) == -1){
-                printf("An error occured with writing the pipe\n");
-                return 2;
-            }
+            return 4;
+        }
+        if (read(fd[0], &str, sizeof(char) * n) == -1)
+        {
+            printf("An error occured with writing the pipe\n");
+            return 5;
+        }
         // for (i = 0; i < strlen(str); i++)
         // {
         //     printf("%d",str[0]);
