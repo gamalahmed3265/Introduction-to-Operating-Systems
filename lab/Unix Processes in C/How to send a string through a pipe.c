@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
         
         str[n-1]='\0';
 
-        if (write(fd[1], str, n+1) == -1)
+        if (write(fd[1], str, sizeof(char)* n) == -1)
         {
             printf("An error occured with writing the pipe\n");
             return 2;
@@ -68,22 +68,21 @@ int main(int argc, char *argv[])
     {
         close(fd[1]);
         char str[200];
-        if (read(fd[0], &str, sizeof(char)* strlen(str)) == -1){
-                printf("An error occured with writing the pipe\n");
-                return 2;
-            }
         if (read(fd[0], &n, sizeof(int)) == -1){
             printf("An error occured with writing the pipe\n");
             return 2;
             }
-        // close the pipe write
+        if (read(fd[0], &str, sizeof(char)* n) == -1){
+                printf("An error occured with writing the pipe\n");
+                return 2;
+            }
+        // for (i = 0; i < strlen(str); i++)
+        // {
+        //     printf("%d",str[0]);
+        // }
+        // printf("\n");
+        printf("Receiving String is %s\n", str);
         close(fd[0]);
-        for (i = 0; i < strlen(str); i++)
-        {
-            printf("%d",str[0]);
-        }
-        printf("\n");
-        printf("sum is %d\n", sum);
         wait(NULL);
     }
 
