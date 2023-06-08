@@ -31,8 +31,8 @@ int main(int argc, char *argv[])
     if (pid == 0)
     {
         dup2(fd[1], STDOUT_FILENO);
-        close(f[0]);
-        close(f[1]);
+        close(fd[0]);
+        close(fd[1]);
         execlp(
             "ping",
             "ping",
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
             "google.com",
             NULL);
     }
-    int pi2 = fork();
+    int pid2 = fork();
     if (pid2 == -1)
     {
         return 2;
@@ -49,8 +49,8 @@ int main(int argc, char *argv[])
     if (pid2 == 0)
     {
         dup2(fd[1], STDOUT_FILENO);
-        close(f[0]);
-        close(f[1]);
+        close(fd[0]);
+        close(fd[1]);
         execlp(
             "grep",
             "grep",
