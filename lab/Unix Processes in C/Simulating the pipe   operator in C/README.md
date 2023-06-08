@@ -1,6 +1,3 @@
-## Simulating the pipe "|" operator in C
-
-
 The code you provided creates two child processes, one to run the `ping` command and the other to run the `grep` command. The `ping` command sends five pings to the Google domain and the `grep` command searches the output of the `ping` command for the string `rtt`. The `waitpid` functions wait for the child processes to finish before returning.
 
 Here is a breakdown of what each line of code does:
@@ -37,8 +34,8 @@ This line creates a child process. If an error occurs, the program returns 1.
 if (pid == 0)
 {
     dup2(fd[1], STDOUT_FILENO);
-    close(f[0]);
-    close(f[1]);
+    close(fd[0]);
+    close(fd[1]);
     execlp(
         "ping",
         "ping",
@@ -52,7 +49,7 @@ if (pid == 0)
 This code runs the `ping` command in the child process. The `dup2` function redirects the output of the `ping` command to the `fd[1]` file descriptor. The `close` functions close the `fd[0]` and `fd[1]` file descriptors. The `execlp` function runs the `ping` command.
 
 ```c
-int pi2 = fork();
+int pid2 = fork();
 if (pid2 == -1)
 {
     return 2;
@@ -65,8 +62,8 @@ This line creates a second child process. If an error occurs, the program return
 if (pid2 == 0)
 {
     dup2(fd[1], STDOUT_FILENO);
-    close(f[0]);
-    close(f[1]);
+    close(fd[0]);
+    close(fd[1]);
     execlp(
         "grep",
         "grep",
@@ -89,3 +86,21 @@ return 0;
 ```
 
 This line returns 0.
+
+The code you provided works well, but there is one potential issue. The `grep` command will only print the first occurrence of the string `rtt` in the output of the `ping` command. If the `ping` command returns multiple lines that contain the string `rtt`, the `grep` command will only print the first one.
+
+To avoid this issue, you can use the `awk` command instead of the `grep` command. The `awk` command can be used to search for patterns in text and to print the results in a variety of formats. In this case, you can use the `awk` command to print all of the lines in the output of the `ping` command that contain the string `rtt`.
+
+To do this, you will need to change the line that calls the `grep` command to the following line:
+
+```c
+execlp(
+    "awk",
+    "awk",
+    "/rtt/",
+    NULL);
+```
+
+This line will run the `awk` command with the `/rtt/` pattern. The `awk` command will then print all of the lines in its input that match the pattern.
+
+Once you have made this change, the code will print all of the lines in the output of the `ping` command that contain the string `rtt`.
