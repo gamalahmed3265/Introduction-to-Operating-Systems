@@ -41,9 +41,15 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    int pid1_res = wait(NULL);
+    // int pid1_res = wait(NULL);
+    // printf("Waited for %d\n", pid1_res);
+    // int pid2_res = wait(NULL);
+    // printf("Waited for %d\n", pid2_res);
+    
+    int pid1_res = waitpid(pid,NULL,WNOHANG);
     printf("Waited for %d\n", pid1_res);
-    int pid2_res = wait(NULL);
-    printf("Waited for %d\n", pid_res);
+    int pid2_res = waitpid(pid2,NULL,WNOHANG);
+    printf("Waited for %d\n", pid2_res);
+    
     return 0;
 }
