@@ -33,71 +33,77 @@ int main(int argc, char *argv[])
     }
 
     if (pid == 0)
-    {   
+    {
         close(fd[0][1]);
         close(fd[1][1]);
         close(fd[2][0]);
         close(fd[2][1]);
         int x;
-        if(read(fd[0][0],&x,sizeof(int))){
+        if (read(fd[0][0], &x, sizeof(int)))
+        {
             return 3;
         }
-        
-        x+=5;
-        if(write(fd[1][1],&x,sizeof(int))){
+
+        x += 5;
+        if (write(fd[1][1], &x, sizeof(int)))
+        {
             return 4;
         }
         close(fd[0][0]);
         close(fd[1][1]);
     }
-    
 
     // pid 2
 
-        int pid2 = fork();
+    int pid2 = fork();
     if (pid2 == -1)
     {
         return 1;
     }
 
     if (pid2 == 0)
-    {   
+    {
         close(fd[0][0]);
         close(fd[0][1]);
         close(fd[1][1]);
         close(fd[2][0]);
         int x;
-        if(read(fd[1][0],&x,sizeof(int))){
+        if (read(fd[1][0], &x, sizeof(int)))
+        {
             return 6;
         }
-        
-        x+=5;
-        if(write(fd[2][1],&x,sizeof(int))){
+
+        x += 5;
+        if (write(fd[2][1], &x, sizeof(int)))
+        {
             return 7;
         }
         close(fd[1][0]);
         close(fd[2][1]);
     }
 
- close(fd[0][0]);
-        close(fd[1][0]); close(fd[1][1]);
-        close(fd[2][1]);
+    close(fd[0][0]);
+    close(fd[1][0]);
+    close(fd[1][1]);
+    close(fd[2][1]);
 
-        int x;
-        printf("Input Number: ");
-        scanf("%d",&x);
+    int x;
+    printf("Input Number: ");
+    scanf("%d", &x);
 
-        if(write(fd[0][1],&x,sizeof(int))){
-            return 8;
-        }
-        if(read(fd[2][0],&x,sizeof(int))){
-            return 9;
-        }
-    printf("results %d\n",x);
+    if (write(fd[0][1], &x, sizeof(int)))
+    {
+        return 8;
+    }
+    if (read(fd[2][0], &x, sizeof(int)))
+    {
+        return 9;
+    }
+    printf("results %d\n", x);
     close(fd[0][1]);
-        close(fd[2][0]);
+    close(fd[2][0]);
 
-    waitpid(pid,NULL,0);
-    waitpid(pid2,NULL,0);
+    waitpid(pid, NULL, 0);
+    waitpid(pid2, NULL, 0);
     return 0;
 }
