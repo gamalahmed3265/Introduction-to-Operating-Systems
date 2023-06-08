@@ -11,14 +11,7 @@
 #include <time.h>
 #include <string.h>
 
-int x = 0;
-void handler(int sig)
-{
-    if (x == 0)
-    {
-        printf("hint remember multiplication is repetitive addition\n");
-    }
-}
+
 int main(int argc, char *argv[])
 {
     int fd[2];
