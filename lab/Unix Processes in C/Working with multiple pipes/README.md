@@ -8,7 +8,7 @@ Once you have created a pipe, you can use the `fork()` system call to create a c
 
 Here is an example of how to use multiple pipes:
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -60,3 +60,8 @@ The parent process forks a child process. The child process then uses the `dup2(
 The `ls` command then reads data from the read end of the second pipe and prints it to standard output. The parent process then reads data from the write end of the first pipe and prints it to standard output.
 
 This code will list the contents of the current directory.
+
+
+
+
+<img width="944" alt="image" src="https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/5dc87e2d-f6f7-4b27-be9f-6cff13881e86">
