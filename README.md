@@ -18,7 +18,9 @@ There are many different operating systems available, each with its own strength
 
 The choice of operating system depends on the needs of the user. For example, Windows is a good choice for users who want a user-friendly operating system with a wide range of software available. macOS is a good choice for users who want an operating system that is integrated with other Apple products. Linux is a good choice for users who want a customizable and scalable operating system. Android is a good choice for users who want a mobile operating system with a wide range of apps available. iOS is a good choice for users who want a sleek and integrated mobile operating system.
 
-![notebook-kali-2022 1](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/019efe0d-fe62-4f6d-803a-ad660cee48e0)
+
+<img width="718" alt="image" src="https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/825640c8-93d9-4abb-8c57-ce3c9dfc6775">
+
 
 ## Thanks 
 ### K. C. Wang
