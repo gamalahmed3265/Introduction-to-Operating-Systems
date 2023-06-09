@@ -126,4 +126,52 @@ int main() {
 
 This code will open the file "file.txt" for reading, duplicate the file descriptor, close the original file descriptor, read from the new file descriptor, and close the new file descriptor.
 
+
+
+Sure, here is an example of a C program that uses the `dup2()` system call to duplicate a file descriptor:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+
+  // Open a file
+  int fd = open("file.txt", O_RDONLY);
+
+  // Duplicate the file descriptor
+  int new_fd = dup2(fd, STDOUT_FILENO);
+
+  // Check if the duplicate was successful
+  if (new_fd == -1) {
+    perror("dup2");
+    exit(1);
+  }
+
+  // Read from the file descriptor
+  char buf[1024];
+  read(new_fd, buf, sizeof(buf));
+
+  // Print the contents of the buffer
+  printf("%s\n", buf);
+
+  // Close the file descriptor
+  close(fd);
+
+  return 0;
+}
+```
+
+This code will open the file `file.txt` for reading, duplicate the file descriptor, and then read from the new file descriptor. The contents of the file will be printed to the standard output.
+
+The `dup2()` system call can be used to duplicate file descriptors for a variety of purposes. For example, it can be used to redirect the output of a command to a file, or to create a pipe that can be used for communication between two processes.
+
+
+
 The dup() and dup2() system calls can be used to duplicate file descriptors for a variety of purposes. For example, they can be used to redirect the output of a command to a file, or to create a pipe that can be used for communication between two processes.
+
+
+
+
+
