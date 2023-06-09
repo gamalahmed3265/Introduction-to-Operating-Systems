@@ -55,3 +55,31 @@ Here are some of the best practices for concurrent programming:
 * **Test your programs for race conditions, deadlocks, and livelocks.**
 
 Concurrent programming is a powerful tool that can be used to improve the performance, scalability, and reliability of programs. However, it is important to understand the challenges of concurrent programming and to use the best practices to avoid race conditions, deadlocks, and livelocks.
+
+
+
+
+Parallelism and concurrency are two terms that are often confused with each other, but they have distinct meanings.
+
+* **Parallelism** refers to the simultaneous execution of two or more tasks. This can be achieved by using multiple CPUs or cores, or by using multiple threads or processes on a single CPU.
+* **Concurrency** refers to the execution of two or more tasks that overlap in time. This can happen even if the tasks are not executed simultaneously, as long as they are not blocked from executing by other tasks.
+
+In other words, parallelism is about doing things at the same time, while concurrency is about doing things at different times but overlapping.
+
+Here is a table that summarizes the key differences between parallelism and concurrency:
+
+| Parallelism | Concurrency |
+|---|---|
+| Multiple tasks are executed simultaneously. | Multiple tasks execute at different times but overlap. |
+| Requires multiple CPUs or cores. | Can be achieved on a single CPU. |
+| Can improve performance by reducing the amount of time that tasks spend waiting for resources. | Can improve responsiveness by allowing users to interact with the program even while it is processing other tasks. |
+
+Parallelism and concurrency can be used together to improve the performance and responsiveness of programs. For example, a program that uses multiple threads can improve performance by executing multiple tasks simultaneously. The program can also improve responsiveness by allowing users to interact with the program even while it is processing other tasks.
+
+Here are some examples of parallelism and concurrency in real-world applications:
+
+* **Web servers:** Web servers often use multiple CPUs or cores to handle requests from users. This allows the web server to serve more requests simultaneously, which improves performance.
+* **Database servers:** Database servers often use multiple threads to process queries. This allows the database server to process more queries simultaneously, which improves performance.
+* **Graphics processing units (GPUs):** GPUs are specialized processors that are designed for parallel processing. GPUs are often used for tasks such as video rendering and 3D graphics.
+
+Parallelism and concurrency are important concepts in computer science. By understanding these concepts, programmers can write programs that are more efficient and responsive.
