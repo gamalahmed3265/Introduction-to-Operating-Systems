@@ -20,3 +20,9 @@ The choice of operating system depends on the needs of the user. For example, Wi
 
 ![notebook-kali-2022 1](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/019efe0d-fe62-4f6d-803a-ad660cee48e0)
 
+## thanks 
+### K. C. Wang
+K. C. Wang received the BSEE degree from National Taiwan University in 1960 and the PhD degree in Electrical Engineering from Northwestern University, Evanston, IL, in
+1965. He is currently a professor in the School of Electrical Engineering and Computer Science at Washington State University. His academic interests are in operating systems, distributed systems, and parallel computing
+
+### [CodeVault](https://www.youtube.com/@CodeVault)
