@@ -1,3 +1,10 @@
+
+### setitimer
+![setitimer](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/b267d3da-2cc9-42bf-a50b-62fa6f2923f6)
+
+##3 t.c
+![t](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/b7efe210-3c97-488f-8b1d-510a41f058fa)
+
 Timers and Time Service in Linux are two important concepts that are essential for understanding how Linux manages time.
 
 * **Timers** are used to schedule tasks to run at a specific time or interval. Timers can be used to perform a variety of tasks, such as starting a service, running a command, or sending a notification.
