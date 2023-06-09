@@ -173,5 +173,71 @@ The dup() and dup2() system calls can be used to duplicate file descriptors for 
 
 
 
+A pipe is a unidirectional communication channel that can be used to pass data between two processes. A named pipe is a special type of pipe that has a name, and can be accessed by any process that knows the name.
 
+Pipes are created using the `pipe()` system call. The `pipe()` system call returns two file descriptors, one for reading from the pipe and one for writing to the pipe.
+
+Named pipes are created using the `mkfifo()` system call. The `mkfifo()` system call creates a new named pipe with the specified name.
+
+To use a pipe, one process opens the pipe for reading and the other process opens the pipe for writing. The process that is writing to the pipe can write data to the pipe, and the process that is reading from the pipe can read data from the pipe.
+
+To use a named pipe, one process opens the named pipe for reading and the other process opens the named pipe for writing. The process that is writing to the named pipe can write data to the named pipe, and the process that is reading from the named pipe can read data from the named pipe.
+
+Pipes and named pipes are a simple and efficient way for processes to communicate with each other. They are often used in shell scripts and in programs that need to communicate with each other.
+
+Here is an example of a C program that uses a pipe to communicate between two processes:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+
+  // Create a pipe
+  int pipefd[2];
+  pipe(pipefd);
+
+  // Fork a child process
+  pid_t pid = fork();
+
+  // If the child process was created, then execute the child code
+  if (pid == 0) {
+
+    // Close the read end of the pipe
+    close(pipefd[0]);
+
+    // Write data to the pipe
+    char data[] = "Hello, world!";
+    write(pipefd[1], data, strlen(data));
+
+    // Exit the child process
+    exit(0);
+  }
+
+  // If the parent process was created, then execute the parent code
+  else {
+
+    // Close the write end of the pipe
+    close(pipefd[1]);
+
+    // Read data from the pipe
+    char buffer[1024];
+    int bytes_read = read(pipefd[0], buffer, sizeof(buffer));
+
+    // Print the data that was read from the pipe
+    printf("%s\n", buffer);
+
+    // Wait for the child process to finish
+    wait(NULL);
+
+    // Exit the parent process
+    exit(0);
+  }
+
+  return 0;
+}
+```
+
+This code will create two processes, one child process and one parent process. The child process will write the string "Hello, world!" to the pipe, and the parent process will read the string from the pipe and print it to the standard output.
 
