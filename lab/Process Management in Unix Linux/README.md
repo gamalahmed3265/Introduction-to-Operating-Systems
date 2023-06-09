@@ -44,7 +44,7 @@ Process management is a complex and important part of Unix and Linux operating s
 
 
 
-Sure, here is an example of a C program that creates two processes and then waits for the child processes to finish:
+ C program that creates two processes and then waits for the child processes to finish:
 
 ```c
 #include <stdio.h>
@@ -99,7 +99,7 @@ The following table summarizes the differences between dup() and dup2():
 | Return value | Returns the new file descriptor. | Returns the new file descriptor, or -1 on error. |
 | Error codes | EINTR, EBADF, EINVAL, EMFILE, ENFILE, ENOSPC | EINTR, EBADF, EINVAL, EMFILE, ENFILE, ENOSPC, ENOTFD |
 
-Here is an example of how to use dup() and dup2():
+example of how to use dup() and dup2():
 
 ```c
 int main() {
