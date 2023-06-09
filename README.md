@@ -28,4 +28,9 @@ The choice of operating system depends on the needs of the user. For example, Wi
 K. C. Wang received the BSEE degree from National Taiwan University in 1960 and the PhD degree in Electrical Engineering from Northwestern University, Evanston, IL, in
 1965. He is currently a professor in the School of Electrical Engineering and Computer Science at Washington State University. His academic interests are in operating systems, distributed systems, and parallel computing
 
+
+### [Sara](https://www.facebook.com/Eng33?mibextid=ZbWKwL)
+PhD at faculty of Computers and information zagazig university 
+
+
 ### [CodeVault](https://www.youtube.com/@CodeVault)
