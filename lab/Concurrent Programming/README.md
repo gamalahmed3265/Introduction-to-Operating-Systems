@@ -2,23 +2,36 @@
 
 ### 1
 ![1](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/3994a0aa-6093-4c80-b42e-911d1a37c989)
-</hr>
+
+
 ### 2
 ![2](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/a1caf57f-fc3d-43c1-ae44-d06660c1a66e)
+
+
 ### 3
 ![3](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/095ad6f8-2be3-443d-b977-8cbb9e2d5891)
 
+
 ### 4
 ![4](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/dc1f8002-ad95-4cda-bd6b-ff622600b273)
+
+
 ### 5
 ![5](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/fdc98226-0adb-4ffa-87db-deddcc3e460d)
+
+
 ### type
 ![type](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/5912c1b1-570d-4aa9-8290-bef4a0418795)
+
+
 ### test program for semaphore operations
 ![test program for semaphore operations](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/ef079e52-c1a2-49df-b760-fe089c0189c3)
+
+
 ### test program for mutex operations
 ![test program for mutex operations](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/17590ca2-129b-4ade-b6f6-8d56d8dd0b22)
 
+## Concurrent programming
 Concurrent programming is a programming paradigm that allows multiple tasks to be executed simultaneously. This can be done by using multiple threads, processes, or cores. Concurrent programming is often used to improve the performance of programs by allowing them to take advantage of multiple CPUs or cores.
 
 There are a number of challenges associated with concurrent programming, including:
