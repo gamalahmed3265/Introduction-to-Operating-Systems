@@ -1,3 +1,5 @@
+## Run files
+
 ### 1
 ![1](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/3994a0aa-6093-4c80-b42e-911d1a37c989)
 ### 2
@@ -59,7 +61,7 @@ Here are some of the best practices for concurrent programming:
 Concurrent programming is a powerful tool that can be used to improve the performance, scalability, and reliability of programs. However, it is important to understand the challenges of concurrent programming and to use the best practices to avoid race conditions, deadlocks, and livelocks.
 
 
-
+## Parallelism and Concurrency
 
 Parallelism and concurrency are two terms that are often confused with each other, but they have distinct meanings.
 
@@ -87,7 +89,7 @@ Here are some examples of parallelism and concurrency in real-world applications
 Parallelism and concurrency are important concepts in computer science. By understanding these concepts, programmers can write programs that are more efficient and responsive.
 
 
-
+## Semaphores
 
 Semaphores are a synchronization primitive in Linux that can be used to control access to shared resources. Semaphores are typically used to prevent race conditions, which can occur when multiple processes or threads try to access the same resource at the same time.
 
