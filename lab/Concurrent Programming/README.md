@@ -2,6 +2,7 @@
 
 ### 1
 ![1](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/3994a0aa-6093-4c80-b42e-911d1a37c989)
+</hr>
 ### 2
 ![2](https://github.com/gamalahmed3265/Operating-Systems/assets/75225936/a1caf57f-fc3d-43c1-ae44-d06660c1a66e)
 ### 3
