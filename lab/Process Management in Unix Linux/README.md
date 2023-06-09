@@ -241,3 +241,83 @@ int main() {
 
 This code will create two processes, one child process and one parent process. The child process will write the string "Hello, world!" to the pipe, and the parent process will read the string from the pipe and print it to the standard output.
 
+
+
+
+
+
+
+
+
+
+
+Sure, here is an example of a C program that uses a named pipe to communicate between two processes:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+
+int main() {
+
+  // Create a named pipe
+  int status = mkfifo("myfifo", 0666);
+
+  // Check if the named pipe was created successfully
+  if (status < 0) {
+    perror("mkfifo");
+    exit(1);
+  }
+
+  // Fork a child process
+  pid_t pid = fork();
+
+  // If the child process was created, then execute the child code
+  if (pid == 0) {
+
+    // Open the named pipe for writing
+    int fd = open("myfifo", O_WRONLY);
+
+    // Write data to the named pipe
+    char data[] = "Hello, world!";
+    write(fd, data, strlen(data));
+
+    // Close the named pipe
+    close(fd);
+
+    // Exit the child process
+    exit(0);
+  }
+
+  // If the parent process was created, then execute the parent code
+  else {
+
+    // Open the named pipe for reading
+    int fd = open("myfifo", O_RDONLY);
+
+    // Read data from the named pipe
+    char buffer[1024];
+    int bytes_read = read(fd, buffer, sizeof(buffer));
+
+    // Print the data that was read from the named pipe
+    printf("%s\n", buffer);
+
+    // Close the named pipe
+    close(fd);
+
+    // Wait for the child process to finish
+    wait(NULL);
+
+    // Exit the parent process
+    exit(0);
+  }
+
+  return 0;
+}
+```
+
+This code will create two processes, one child process and one parent process. The child process will write the string "Hello, world!" to the named pipe, and the parent process will read the string from the named pipe and print it to the standard output.
+
+The named pipe will remain on the filesystem until it is deleted. Any process that knows the name of the named pipe can open it for reading or writing.
