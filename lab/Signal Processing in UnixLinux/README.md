@@ -151,3 +151,21 @@ int main() {
 
 ```
 
+# pipes and named pipes
+Both unnamed pipes and named pipes can be used for related or unrelated processes. However, there are some differences in how they are used.
+
+* **Unnamed pipes** are created by the `pipe()` system call. They are a form of **inter-process communication (IPC)** that allows two processes to communicate with each other directly. Unnamed pipes are **temporary** and only exist as long as the processes that created them are still running.
+* **Named pipes** are created by the `mkfifo()` system call. They are also a form of IPC, but they are **persistent** and can be used by any process that has access to them. Named pipes are often used to create **daemons**, which are processes that run in the background and provide services to other processes.
+
+In general, unnamed pipes are a good choice for communication between **related processes**, such as the parent and child processes of a fork(). Named pipes are a good choice for communication between **unrelated processes**, such as a web server and a database server.
+
+Here is a table that summarizes the differences between unnamed pipes and named pipes:
+
+| Feature | Unnamed Pipes | Named Pipes |
+|---|---|---|
+| Creation | `pipe()` system call | `mkfifo()` system call |
+| Lifetime | Temporary, only exists as long as the processes that created it are still running | Persistent, can be used by any process that has access to it |
+| Use | Communication between related processes | Communication between unrelated processes |
+| Example | Parent and child processes of a fork() | Web server and database server |
+
+I hope this helps! Let me know if you have any other questions.
